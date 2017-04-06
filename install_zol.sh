@@ -30,12 +30,3 @@ sudo zpool create -f datastore raidz2 /dev/sdb /dev/sdc /dev/sdd /dev/sde
 
 # Mount the zpool. Notice that datastore/data creates "partition"
 sudo zfs create -o mountpoint=/mnt/zfs datastore/data
-
-
-##########################
-# OPTIONAL FEATURES      #
-# UNCOMMENT TO USE       #
-##########################
-# sudo sh auto-snapshot.sh
-# sudo sh auto-scrub.sh
-# sudo sh gmail-alerts.sh
