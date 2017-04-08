@@ -90,6 +90,5 @@ echo "Please check your inbox at gmail."
 sudo mv /etc/zfs/zed.d/zed.rc /etc/zfs/zed.d/zed.rc.old
 sudo cp zed.rc /etc/zfs/zed.d/zed.rc
 sudo chown root:root /etc/zfs/zed.d/zed.rc
-sudo chmod 600 /etc/zfs/zed.d/zed.rc
-sudo chmod +r /etc/zfs/zed.d/zed.rc
+sudo chmod 644 /etc/zfs/zed.d/zed.rc
 sudo service zed restart
