@@ -10,17 +10,25 @@ cd $(dirname $0)
 #
 
 
-# Add repo and install auto snapshots
-sudo add-apt-repository ppa:bob-ziuchkovski/zfs-auto-snapshot
-sudo apt-get update
-sudo apt-get install -y zfs-auto-snapshot
-
-
 # Disable top level snapshots & enable weekly, daily, hourly, frequent snapshots for mounted zpool
-sudo zfs set com.sun:auto-snapshot=false zpool
-sudo zfs set com.sun:auto-snapshot=true zpool/dataset
-sudo zfs set com.sun:auto-snapshot:monthly=false zpool/dataset
-sudo zfs set com.sun:auto-snapshot:weekly=true zpool/dataset
-sudo zfs set com.sun:auto-snapshot:daily=true zpool/dataset
-sudo zfs set com.sun:auto-snapshot:hourly=true zpool/dataset
-sudo zfs set com.sun:auto-snapshot:frequent=false zpool/dataset
+sudo zfs set com.sun:auto-snapshot=true data
+sudo zfs set com.sun:auto-snapshot:monthly=false data
+sudo zfs set com.sun:auto-snapshot:weekly=false data
+sudo zfs set com.sun:auto-snapshot:daily=false data
+sudo zfs set com.sun:auto-snapshot:hourly=false data
+sudo zfs set com.sun:auto-snapshot:frequent=false data
+
+
+sudo zfs set com.sun:auto-snapshot=true data/data
+sudo zfs set com.sun:auto-snapshot:monthly=true data/data
+sudo zfs set com.sun:auto-snapshot:weekly=true data/data
+sudo zfs set com.sun:auto-snapshot:daily=true data/data
+sudo zfs set com.sun:auto-snapshot:hourly=false data/data
+sudo zfs set com.sun:auto-snapshot:frequent=false data/data
+
+sudo zfs set com.sun:auto-snapshot=true data/media
+sudo zfs set com.sun:auto-snapshot:monthly=true data/media
+sudo zfs set com.sun:auto-snapshot:weekly=true data/media
+sudo zfs set com.sun:auto-snapshot:daily=false data/media
+sudo zfs set com.sun:auto-snapshot:hourly=false data/media
+sudo zfs set com.sun:auto-snapshot:frequent=false data/media
